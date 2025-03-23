@@ -13,7 +13,7 @@ const Ingredients = ({ setSelectedIng }) => {
   const [ingID, addIngIDs] = useState([]);
   //function to find all id's with matching name
   const findIng = (name) => {
-    fetch(`http://localhost:3000/ingredients/${name}`)
+    fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients/${name}`)
     .then(response => response.json())
     .then(data => {
       //for each id that matches the name, run the handleToggle function
@@ -48,7 +48,7 @@ const Ingredients = ({ setSelectedIng }) => {
 
   useEffect(() => {
     //if(isLoaded) -- for when we have users
-    fetch('http://localhost:3000/ingredients')
+    fetch('https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients')
       .then(response => response.json())
       .then(data => {
         const uniqueIngredients = data.filter((value, index, self) => 

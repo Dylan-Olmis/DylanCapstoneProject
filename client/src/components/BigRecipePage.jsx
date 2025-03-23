@@ -21,7 +21,7 @@ const BigRecipePage = () => {
 
   // calling the ingredients for this specific recipe
   useEffect(() => {
-    fetch(`http://localhost:3000/recipe/${recipe_id}`)
+    fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipe/${recipe_id}`)
       .then((response) => response.json())
       .then((data) => {
         setRecipeData(data[0]);
@@ -29,7 +29,7 @@ const BigRecipePage = () => {
       .catch(() => {
         console.log("Cannot get recipe data from this time");
       });
-    fetch(`http://localhost:3000/recipe/ingredients/${recipe_id}`)
+    fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipe/ingredients/${recipe_id}`)
       .then((response) => response.json())
       .then((data) => {
         setRecipeIngredients(data);

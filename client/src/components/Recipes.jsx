@@ -5,7 +5,7 @@ import "./Recipe.css";
 import body from "../recipeBody/pantry";
 
 //base url for fetching data from the server
-const baseURL = "http://localhost:3000";
+const baseURL = "https://zx7w2snw17.execute-api.us-east-1.amazonaws.com/";
 function Recipes({ selectedIngredients }) {
   const navigate = useNavigate();
   const [recipes, setRecipes] = useState(new Set());

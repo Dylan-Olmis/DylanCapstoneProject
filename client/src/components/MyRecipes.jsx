@@ -15,7 +15,7 @@ const MyRecipes = ({ user }) => {
   // loading recipes data from backend for a user
   useEffect(() => {
     if (user.user_id) {
-      fetch(`http://localhost:3000/recipesAndIngredients/${user.user_id}`)
+      fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipesAndIngredients/${user.user_id}`)
         .then(response => response.json())
         .then(userRecipes => {
           setRecipeData(userRecipes)

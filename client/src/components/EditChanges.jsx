@@ -27,7 +27,7 @@ const EditChanges = () => {
     // loading recipes data from backend for a specific recipe
     useEffect(() => {
 
-        fetch(`http://localhost:3000/recipe/${recipe_id}`)
+        fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipe/${recipe_id}`)
             .then(response => response.json())
             .then(data => {
                 // we need to take our data from the database and return it in the same form we created it as in the AddRecipe.jsx
@@ -53,7 +53,7 @@ const EditChanges = () => {
                 console.log("Cannot get recipe data from this time")
             })
 
-        fetch(`http://localhost:3000/recipe/ingredients/${recipe_id}`)
+        fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipe/ingredients/${recipe_id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -120,7 +120,7 @@ const EditChanges = () => {
         
         let updatedData = () => {
             let promises = [];
-        let updatedRecipe = fetch(`http://localhost:3000/recipes/${recipe_id}`, {
+        let updatedRecipe = fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipes/${recipe_id}`, {
             //PUT method updating our data
             method: "PUT",
             headers: {
@@ -148,7 +148,7 @@ const EditChanges = () => {
         promises.push(updatedRecipe)
         // we run a post multiple times so if the user puts in a couple of ingredients they will send back each of those ingredients to the server
         let updatedIngredients = ingredients.map((element, index) => {
-            return fetch(`http://localhost:3000/ingredients/${ingredientsId[index]}`, {
+            return fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients/${ingredientsId[index]}`, {
                 //POST method that gives the state data to the server!
                 method: "PUT",
                 headers: {
@@ -193,14 +193,14 @@ const EditChanges = () => {
         const confirmed = window.confirm('Are you sure you want to remove this recipe?')
         if (confirmed) {
             // we delete ingredients first since it shares the recipe_id with the recipe table
-            fetch(`http://localhost:3000/ingredients/${recipe_id}`, {
+            fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients/${recipe_id}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             })
                 .then(response => response.json())
                 .then(data => {
                     // now we delete the recipe data after ingredients are done
-                    fetch(`http://localhost:3000/recipes/${recipe_id}`, {
+                    fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipes/${recipe_id}`, {
                         method: "DELETE",
                         headers: { "Content-Type": "application/json" }
                     })

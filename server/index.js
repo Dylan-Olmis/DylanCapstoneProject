@@ -24,6 +24,8 @@ app.use(morgan('dev'))
 app.use(cors())
 // connect to database to establish connection from pantryConn.js
 connectDb();
+// this is our serverless connection from AWS
+// const serverless = require("serverless-http");
 
 // Define routes
 // Home route - Simple health check endpoint
@@ -43,8 +45,6 @@ app.get('/recipes/', (req, res) => {
     FROM pantryschema.recipes AS r
     JOIN pantryschema.ingredients AS i ON r.recipe_id = i.recipe_id
     GROUP BY r.recipe_id, r.recipe_name, r.description, r.img, r.steps;`
-
-    console.log('get for all recipes', query)
 
     //Call off to the databaase
     pool.query(query)
@@ -439,6 +439,7 @@ app.delete("/ingredients/:recipe_id", (req, res) => {
 // app is ready and listening for commands on selected PORT
 app.listen(PORT, () => console.log(`App listening on PORT:${PORT}`));
 
+// exports.handler = serverless(app);
 
 
 

@@ -41,7 +41,7 @@ function AppData() {
   // and get user_id back 
   useEffect(() => {
     if (user) {
-      let userUrl = 'http://localhost:3000/users'
+      let userUrl = 'https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//users'
       fetch(userUrl, {
         method: 'POST',
         headers: {

@@ -7,7 +7,7 @@ const SearchIngredients = ({ingID, handleToggle, setSelectedIng}) => {
     // this handler will update the searchbar for the value our user wants to add
     const handleIngredient = (event) => {
         if(event.key === "Enter") {
-        fetch(`http://localhost:3000/ingredients/${ingredient}`)
+        fetch(`https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients/${ingredient}`)
         .then(response => response.json())
         .then(data => {
             //updates the state of the selected ingredients. If an ingredient is on the list twice, it selects the first one.

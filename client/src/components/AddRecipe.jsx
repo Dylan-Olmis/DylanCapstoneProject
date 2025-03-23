@@ -67,7 +67,7 @@ const AddRecipe = ({ user }) => {
         let quantity = Object.values(recipe.quantity_n_units)
         let userSteps = Object.values(recipe.steps)
 
-        fetch('http://localhost:3000/recipes', {
+        fetch('https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//recipes', {
             //POST method that gives the state data to the server!
             method: "POST",
             headers: {
@@ -93,7 +93,7 @@ const AddRecipe = ({ user }) => {
                 console.log(data);
                 // we run a post multiple times so if the user puts in a couple of ingredients they will send back each of those ingredients to the server
                 let createdIngredients = ingredients.map((element, index) => {
-                    return fetch('http://localhost:3000/ingredients', {
+                    return fetch('https://zx7w2snw17.execute-api.us-east-1.amazonaws.com//ingredients', {
                         //POST method that gives the state data to the server!
                         method: "POST",
                         headers: {
